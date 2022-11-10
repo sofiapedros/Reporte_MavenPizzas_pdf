@@ -153,3 +153,4 @@ def crear_ingredientes(final):
     ax.set_xticklabels(ax.get_xticklabels(),rotation=40)
     ax.set_title("Ingredients less used in a week")
     plt.savefig("Ingredientes_bottom.jpg")
+
