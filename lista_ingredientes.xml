@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <row>
+    <index>0</index>
+    <Ingredient>Sliced Ham</Ingredient>
+    <Number_of_rations_needed>94</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>1</index>
+    <Ingredient> Pineapple</Ingredient>
+    <Number_of_rations_needed>225</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>2</index>
+    <Ingredient> Mozzarella Cheese</Ingredient>
+    <Number_of_rations_needed>372</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>3</index>
+    <Ingredient>Pepperoni</Ingredient>
+    <Number_of_rations_needed>376</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>4</index>
+    <Ingredient> Mushrooms</Ingredient>
+    <Number_of_rations_needed>362</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>5</index>
+    <Ingredient> Red Onions</Ingredient>
+    <Number_of_rations_needed>1030</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>6</index>
+    <Ingredient> Red Peppers</Ingredient>
+    <Number_of_rations_needed>741</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>7</index>
+    <Ingredient> Bacon</Ingredient>
+    <Number_of_rations_needed>134</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>8</index>
+    <Ingredient> Provolone Cheese</Ingredient>
+    <Number_of_rations_needed>108</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>9</index>
+    <Ingredient> Smoked Gouda Cheese</Ingredient>
+    <Number_of_rations_needed>211</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>10</index>
+    <Ingredient> Romano Cheese</Ingredient>
+    <Number_of_rations_needed>108</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>11</index>
+    <Ingredient> Blue Cheese</Ingredient>
+    <Number_of_rations_needed>108</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>12</index>
+    <Ingredient> Garlic</Ingredient>
+    <Number_of_rations_needed>1331</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>13</index>
+    <Ingredient>Calabrese Salami</Ingredient>
+    <Number_of_rations_needed>122</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>14</index>
+    <Ingredient> Capocollo</Ingredient>
+    <Number_of_rations_needed>343</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>15</index>
+    <Ingredient> Tomatoes</Ingredient>
+    <Number_of_rations_needed>1283</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>16</index>
+    <Ingredient> Green Olives</Ingredient>
+    <Number_of_rations_needed>276</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>17</index>
+    <Ingredient> Jalapeno Peppers</Ingredient>
+    <Number_of_rations_needed>239</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>18</index>
+    <Ingredient> Cilantro</Ingredient>
+    <Number_of_rations_needed>136</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>19</index>
+    <Ingredient> Corn</Ingredient>
+    <Number_of_rations_needed>136</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>20</index>
+    <Ingredient> Chipotle Sauce</Ingredient>
+    <Number_of_rations_needed>136</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>21</index>
+    <Ingredient>Chicken</Ingredient>
+    <Number_of_rations_needed>406</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>22</index>
+    <Ingredient> Thai Sweet Chilli Sauce</Ingredient>
+    <Number_of_rations_needed>131</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>23</index>
+    <Ingredient>Prosciutto di San Daniele</Ingredient>
+    <Number_of_rations_needed>66</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>24</index>
+    <Ingredient> Arugula</Ingredient>
+    <Number_of_rations_needed>58</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>25</index>
+    <Ingredient>Barbecued Chicken</Ingredient>
+    <Number_of_rations_needed>109</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>26</index>
+    <Ingredient> Green Peppers</Ingredient>
+    <Number_of_rations_needed>207</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>27</index>
+    <Ingredient> Barbecue Sauce</Ingredient>
+    <Number_of_rations_needed>109</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>28</index>
+    <Ingredient>Kalamata Olives</Ingredient>
+    <Number_of_rations_needed>268</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>29</index>
+    <Ingredient> Feta Cheese</Ingredient>
+    <Number_of_rations_needed>192</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>30</index>
+    <Ingredient> Beef Chuck Roast</Ingredient>
+    <Number_of_rations_needed>77</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>31</index>
+    <Ingredient>Spinach</Ingredient>
+    <Number_of_rations_needed>521</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>32</index>
+    <Ingredient> Artichokes</Ingredient>
+    <Number_of_rations_needed>468</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>33</index>
+    <Ingredient> Asiago Cheese</Ingredient>
+    <Number_of_rations_needed>266</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>34</index>
+    <Ingredient> Goat Cheese</Ingredient>
+    <Number_of_rations_needed>171</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>35</index>
+    <Ingredient> Oregano</Ingredient>
+    <Number_of_rations_needed>71</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>36</index>
+    <Ingredient> Peperoncini verdi</Ingredient>
+    <Number_of_rations_needed>100</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>37</index>
+    <Ingredient> Sun-dried Tomatoes</Ingredient>
+    <Number_of_rations_needed>81</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>38</index>
+    <Ingredient> Pesto Sauce</Ingredient>
+    <Number_of_rations_needed>119</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>39</index>
+    <Ingredient> Zucchini</Ingredient>
+    <Number_of_rations_needed>90</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>40</index>
+    <Ingredient> Fontina Cheese</Ingredient>
+    <Number_of_rations_needed>130</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>41</index>
+    <Ingredient> Italian Sausage</Ingredient>
+    <Number_of_rations_needed>37</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>42</index>
+    <Ingredient> Chorizo Sausage</Ingredient>
+    <Number_of_rations_needed>37</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>43</index>
+    <Ingredient>Soppressata Salami</Ingredient>
+    <Number_of_rations_needed>27</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>44</index>
+    <Ingredient>Ricotta Cheese</Ingredient>
+    <Number_of_rations_needed>85</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>45</index>
+    <Ingredient> Gorgonzola Piccante Cheese</Ingredient>
+    <Number_of_rations_needed>85</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>46</index>
+    <Ingredient> Parmigiano Reggiano Cheese</Ingredient>
+    <Number_of_rations_needed>85</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>47</index>
+    <Ingredient> Anchovies</Ingredient>
+    <Number_of_rations_needed>52</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>48</index>
+    <Ingredient>Eggplant</Ingredient>
+    <Number_of_rations_needed>30</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>49</index>
+    <Ingredient> Plum Tomatoes</Ingredient>
+    <Number_of_rations_needed>37</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>50</index>
+    <Ingredient>Genoa Salami</Ingredient>
+    <Number_of_rations_needed>50</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>51</index>
+    <Ingredient>Coarse Sicilian Salami</Ingredient>
+    <Number_of_rations_needed>74</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>52</index>
+    <Ingredient> Luganega Sausage</Ingredient>
+    <Number_of_rations_needed>74</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>53</index>
+    <Ingredient> Alfredo Sauce</Ingredient>
+    <Number_of_rations_needed>62</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>54</index>
+    <Ingredient>Brie Carre Cheese</Ingredient>
+    <Number_of_rations_needed>8</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>55</index>
+    <Ingredient> Caramelized Onions</Ingredient>
+    <Number_of_rations_needed>8</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>56</index>
+    <Ingredient> Pears</Ingredient>
+    <Number_of_rations_needed>8</Number_of_rations_needed>
+  </row>
+  <row>
+    <index>57</index>
+    <Ingredient> Thyme</Ingredient>
+    <Number_of_rations_needed>8</Number_of_rations_needed>
+  </row>
+</data>

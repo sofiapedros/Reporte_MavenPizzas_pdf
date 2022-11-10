@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Análisis_ficheros Análisis="NaN, null y tipología">
+  <fichero nombre="data_dictionary.csv">
+    <NaN_totales NaN_totales="0" />
+  <Null_totales Null_totales="0" />
+  <columna nombre_columna="Table">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="Field">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="Description">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  </fichero>
+<fichero nombre="order_details.csv">
+    <NaN_totales NaN_totales="0" />
+  <Null_totales Null_totales="0" />
+  <columna nombre_columna="order_details_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="int64" />
+    </columna>
+  <columna nombre_columna="order_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="int64" />
+    </columna>
+  <columna nombre_columna="pizza_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="quantity">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="int64" />
+    </columna>
+  </fichero>
+<fichero nombre="orders.csv">
+    <NaN_totales NaN_totales="0" />
+  <Null_totales Null_totales="0" />
+  <columna nombre_columna="order_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="int64" />
+    </columna>
+  <columna nombre_columna="date">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="time">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  </fichero>
+<fichero nombre="pizza_types.csv">
+    <NaN_totales NaN_totales="0" />
+  <Null_totales Null_totales="0" />
+  <columna nombre_columna="pizza_type_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="name">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="category">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="ingredients">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  </fichero>
+<fichero nombre="pizzas.csv">
+    <NaN_totales NaN_totales="0" />
+  <Null_totales Null_totales="0" />
+  <columna nombre_columna="pizza_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="pizza_type_id">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="size">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="object" />
+    </columna>
+  <columna nombre_columna="price">
+      <NaN_columna numero_NaN_columna="0" />
+    <Null_columna numero_Null_columna="0" />
+    <tipo_dato tipo_dato_columna="float64" />
+    </columna>
+  </fichero>
+</Análisis_ficheros>
