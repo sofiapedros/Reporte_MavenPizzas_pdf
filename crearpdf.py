@@ -40,7 +40,7 @@ def create_pdf(dataframe):
     pdf.add_page()
     # En esa página ponemos una imagen de las estadísticas
     # de las ventas de la pizzería
-    pdf.image('Maven_Pizza.png',x = -0.25, w = pdf.w +1)
+    pdf.image('Informe_powerby.png',25,25,170)
     pdf.set_font('times','BU', 16)
     
     # Añadimos otra página
