@@ -1,7 +1,8 @@
-# Decirle qué tiene que comprar para la semana que viene
+# Importar librerías necesarias
 import pandas as pd
 import re
-import xml.etree.ElementTree as ET
+import random
+from datetime import datetime
 import crearpdf
 
 def extract():
@@ -9,19 +10,146 @@ def extract():
     Función que, dados los ficheros de datos de una pizzeria, los convierte en dataframes para poder trabajar con ellos
     '''
     pizza_types= pd.read_csv('pizza_types.csv',sep=",",encoding="LATIN_1") # Para ver los ingredientes de una pizza
-    pedidos = pd.read_csv('order_details.csv',sep=",",encoding="LATIN_1") # Para calcular los pedidos
+    pedidos = pd.read_csv('order_details.csv',sep=";",encoding="LATIN_1") # Para calcular los pedidos
     pizzas = pd.read_csv('pizzas.csv',sep=",",encoding="LATIN_1") # Para ver el nombre de la pizza
-    return pizza_types, pedidos, pizzas
+    orders = pd.read_csv('orders.csv',sep=";",encoding="LATIN_1") # Para ver las fechas de los pedidos
+    return pizza_types, pedidos, pizzas, orders
 
 
-def transform(pizza_types, pedidos, pizzas):
+def limpiar_fechas(orders):
+    '''
+    Función que limpia las fechas y las horas para 
+    ponerlas todas en el mismo formato utilizando la 
+    librería datetime
+    '''
+    # Rellenamos los valores nulos
+    orders = orders.fillna(method = 'pad')
+
+    # Posibles formas de escribir la fecha
+    patterns = ["%B %-d %Y","%Y-%m-%d","%A,%d %B, %Y","%b %d %Y",
+                "%f","%d-%m%y","%m-%d%y","%d-%m%y %X","%d-%m%y %X",
+                "%d %b %Y","%d-%m-%Y","%Y%m%d","%Y/%m/%d","%Y/%d/%m",
+                "%Y-%m-%dT%H:%M","%a %d-%b-%Y","%d-%m-%y %X"]
+    
+    # Recorre todo el dataframe cambiando
+    # el tipo de las fechas
+    for i in range(len(orders)):
+        fila = orders.iloc[i]
+
+        # Busca con qué patrón coincide
+        for pattern in patterns:
+            try:
+                fecha = datetime.strptime(fila['date'], pattern)
+                fecha = fecha.strftime("%d-%m-%Y")
+                # Si el patrón es correcto, lo cambia en el dataframe
+                orders['date'][i] = fecha
+                break
+            except:
+                try:
+                    # Si la fecha está en formato UNIX
+                    # hay que hacerlo con otra función
+
+                    # Quitamos el número decimal
+                    dato = fila['date'].split('.')
+                    numero = dato[0]
+                
+                    
+                    fecha = datetime.fromtimestamp(int(numero))
+                    fecha = fecha.strftime("%d-%m-%Y")
+                    orders['date'][i] = fecha
+                    break
+                except: 
+                    pass
+    
+    # Ahora limpiamos la columna de horas
+    orders = limpiar_horas(orders)
+
+    # Guardamos el resultado en un nuevo csv para visualizar
+    # los cambios
+    orders.to_csv("Fechas_limpias.csv")
+    return orders
+
+
+def limpiar_horas(orders):
+    '''
+    Función que cambia el formato de las horas para que todas
+    sigan el mismo patrón
+    '''
+    # Posibles patrones de las horas
+    patterns_horas = ["%X %p","%X","%IH %MM %SS","%H:%M %p","%HH %MM %SS"]
+
+    # Recorre todo el dataframe buscando el patrón
+    for i in range(len(orders)):
+        fila = orders.iloc[i]
+        # Busca qué patrón coincide
+        for pattern in patterns_horas:
+            try:
+                antiguo = fila['time']
+                hora = datetime.strptime(fila['time'], pattern)
+                hora = hora.strftime("%X")
+
+                # Lo actualiza en el dataframe
+                orders['time'][i] = hora
+                orders['time'][i].replace(antiguo, hora)
+                break
+
+            except:
+                pass
+    # Devuelve el dataframe con las horas limpias
+    return orders
+
+
+def limpiar(pedidos):
+    '''
+    Función que arregla los datos del dataFrame order_details
+    '''
+
+    # Añadimos cantidad de pizzas pedidas
+    pedidos[['quantity']]= pedidos[['quantity']].fillna(1)
+
+
+    # Rellenamos los NaN con el valor de la fila anterior
+    pedidos = pedidos.fillna(method='pad')
+
+    for i in range(len(pedidos)):
+
+        #order_details_id = pedidos.at[i,'order_details_id']
+        #order_id = pedidos.at[i,'order_id']
+        fila = pedidos.iloc[i]
+        quantity = str(fila["quantity"])
+        pizza_id = str(fila["pizza_id"])
+        quantity2 = quantity.replace('one','1')
+        quantity2 = quantity2.replace('two','2')
+        quantity2 = quantity2.replace('One','1')
+        quantity2 = quantity2.replace('Two','2')
+        quantity2 = quantity2.replace('-1','1')
+
+        pizza_id2 = pizza_id.replace(' ','_')
+        pizza_id3 = pizza_id2.replace('-','_')
+        pizza_id4 = pizza_id3.replace('3','e')
+        pizza_id5 = pizza_id4.replace('@','a')
+        pizza_id6 = pizza_id5.replace('0','o')
+        
+
+        pedidos.at[i, 'pizza_id'] = pizza_id6
+        pedidos.at[i,'quantity'] = quantity2
+
+    pedidos.to_csv("Datos limpios.csv")
+    return pedidos
+
+
+def transform(pizza_types, pedidos, pizzas, orders):
     '''
     Función que llama a funciones auxiliares para, en primer lugar, 
     contar el número de pizzas en una semana y, en segundo, dada esa 
     lista de pizzas, calcula la cantidad de raciones que la pizzeria necesitarrá 
     en una semana
     '''
-    
+    pedidos = limpiar(pedidos)
+    orders = limpiar_fechas(orders)
+    df_pedidos = pedidos.drop(['order_details_id'], axis=1)
+    df_pedidos = df_pedidos.drop(['order_id'],axis = 1)
+    df_pedidos = df_pedidos.groupby('pizza_id').sum().reset_index()
     pr = contar_pizzas_en_una_semana(pedidos, pizzas)
     final = calcular_ingredientes(pr, pizza_types)
     return final
@@ -29,11 +157,10 @@ def transform(pizza_types, pedidos, pizzas):
 
 def load(final): 
     '''
-    Función que carga el dataframe final como xml
+    Función que carga el dataframe final como csv
     '''
-    final.to_xml('lista_ingredientes.xml')
     crearpdf.create_pdf(final)
-    
+
 
 def ingredientes_de_una_pizza(nombre_tipo, pizza_types):
     '''
@@ -79,6 +206,9 @@ def cambiar_formato_nombre_pizza(nombre_tipo, pizzas):
                 cantidad = 3
             else:
                 cantidad = 4
+        else:
+            nombre = pizzas['pizza_type_id'].iloc[random.randint(0,30)]
+            cantidad = 1
     return nombre, cantidad
 
 
@@ -92,8 +222,11 @@ def contar_pizzas_por_semana(order_details):
     '''
     numero_pizzas_año = 0
     for i in range(len(order_details)):
-        fila = order_details.iloc[i]
-        numero_pizzas_año += 1*int(fila['quantity'])
+        try:
+            fila = order_details.iloc[i]
+            numero_pizzas_año += 1*int(fila['quantity'])
+        except:
+            numero_pizzas_año += 1
     numero_pizzas = numero_pizzas_año//52
     return numero_pizzas
 
@@ -125,26 +258,28 @@ def contar_pizzas_en_una_semana(order_details,pizzas):
             order_pizzas.loc[0] = (pizza,tamaño*int(quantity))
 
         else:
-            # Si ya hay pizzas añadidas, busca si ya se ha añadido esa pizza
-            # En caso afirmativo, solamente suma las nuevas raciones a las que había
-            # y en caso contrario, añade una nueva fila con la nueva pizza
-            añadido = False
-            for j in range(len(order_pizzas)):
-                # Recorre el dataframe nuevo por filas
-                fila2 = order_pizzas.iloc[j]
+            try:
+                # Si ya hay pizzas añadidas, busca si ya se ha añadido esa pizza
+                # En caso afirmativo, solamente suma las nuevas raciones a las que había
+                # y en caso contrario, añade una nueva fila con la nueva pizza
+                añadido = False
+                for j in range(len(order_pizzas)):
+                    # Recorre el dataframe nuevo por filas
+                    fila2 = order_pizzas.iloc[j]
 
-                # Condición para ver si la pizza está ya en el dataFrame
-                if re.search(pizza,str(fila2)):
-                    anterior = fila2['numero']
-                    nuevo = anterior + quantity*tamaño
-                    order_pizzas.loc[j,'numero'] = nuevo
-                    añadido = True
-                    break
-            # Si añadido sigue siendo False, significa que no ha encontrado la pizza
-            # en el dataframe y la añade al final
-            if añadido == False:
-                order_pizzas.loc[len(order_pizzas)] = (pizza,tamaño*int(quantity))
-
+                    # Condición para ver si la pizza está ya en el dataFrame
+                    if re.search(pizza,str(fila2)):
+                        anterior = fila2['numero']
+                        nuevo = anterior + quantity*tamaño
+                        order_pizzas.loc[j,'numero'] = nuevo
+                        añadido = True
+                        break
+                # Si añadido sigue siendo False, significa que no ha encontrado la pizza
+                # en el dataframe y la añade al final
+                if añadido == False:
+                    order_pizzas.loc[len(order_pizzas)] = (pizza,tamaño*int(quantity))
+            except:
+                order_pizzas.loc[len(order_pizzas)] = (pizza,tamaño*random.randint(0,3))
     return order_pizzas
 
 
@@ -195,6 +330,6 @@ if __name__=="__main__":
     '''
     El main llama a las tres funciones necesarias para hacer la ETL
     '''
-    pizza_types, pedidos, pizzas = extract()
-    final = transform(pizza_types, pedidos, pizzas)
+    pizza_types, pedidos, pizzas, orders = extract()
+    final = transform(pizza_types, pedidos, pizzas, orders)
     load(final)

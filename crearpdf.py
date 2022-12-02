@@ -43,12 +43,24 @@ def create_pdf(dataframe):
     pdf.image('Informe_powerby.png',25,25,170)
     pdf.set_font('times','BU', 16)
     
-    # Añadimos otra página
+    # Descripción de la gráfica
     pdf.add_page()
+    pdf.set_font("times",'',9)
+    pdf.cell(10,10,"This dashboard shows an analysis of the pizza sales from Maven Pizza",new_x=XPos.LMARGIN, new_y=YPos.NEXT, border=False)
+    pdf.cell(10,10,'Firstly, we can see how the sales vary throught the year and we can observe that July is the month with the highest amount of sales',new_x=XPos.LMARGIN, new_y=YPos.NEXT, border=False)
+    pdf.cell(10,10,'Secondly, we can observe the distributions of the size of the pizzas sold and how large pizzas are the most popular',new_x=XPos.LMARGIN, new_y=YPos.NEXT, border=False)
+    pdf.cell(10,10,'Finally, there is an anaylisis of the pizzas more and least sold varying the color depending on the size of the pizzas',new_x=XPos.LMARGIN, new_y=YPos.NEXT, border=False)
+
+    # Añadimos otra página para las estadísticas
+    pdf.add_page()
+    pdf.set_font('times','BU', 16)
+
     # Añadimos una gráfica con las 5 pizzas más vendidas
     pdf.cell(10,10,'Top 5 pizzas more sold',new_x=XPos.LMARGIN, new_y=YPos.NEXT, border=False)
-    # Creamos las gráficas que vamos a añadir
+
+    # Creamos las gráficas que vamos a añadir llamando a la función correspondiente
     crear_pizzas_año()
+
     # Añadimos la imagen de las 5 pizzas más vendidas
     pdf.image('Pizzas_top.jpg',x = -0.5, w = pdf.w +1)
 
@@ -98,7 +110,7 @@ def crear_pizzas_año():
     y otra con las 5 menos vendidas
     '''
     # Leemos el csv con los pedidos
-    pedidos = pd.read_csv('order_details.csv',sep=",",encoding="LATIN_1") 
+    pedidos = pd.read_csv('Datos limpios.csv',sep=",",encoding="LATIN_1") 
     # Quitamos las columnas que no vamos a usar
     pedidos = pedidos.drop(['order_details_id'], axis=1)
     pedidos = pedidos.drop(['order_id'],axis = 1)
@@ -134,7 +146,7 @@ def crear_ingredientes(final):
     '''
 
     # El dataframe ya está preparado, cogemos solamente
-    # los 5 que aparecen más vences y los 5 que aparecen 
+    # los 5 que aparecen más veces y los 5 que aparecen 
     # menos veces
     menores = final.nsmallest(5,'Number_of_rations_needed')
     mayores = final.nlargest(5,'Number_of_rations_needed')
